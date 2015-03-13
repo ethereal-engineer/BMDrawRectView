@@ -1,0 +1,14 @@
+PODS:
+  - BMDrawRectView (1.0.0)
+
+DEPENDENCIES:
+  - BMDrawRectView (from `../`)
+
+EXTERNAL SOURCES:
+  BMDrawRectView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  BMDrawRectView: 60068097719a86efd80289ad705936e988c7eb2f
+
+COCOAPODS: 0.36.0.rc.1

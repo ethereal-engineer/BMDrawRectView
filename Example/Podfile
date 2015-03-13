@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'BMDrawRectView', :exclusive => true do
+  pod "BMDrawRectView", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "BMDrawRectView", :path => "../"
+
+  
+end

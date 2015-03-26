@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BMDrawRectView"
-  s.version          = "1.0.0"
+  s.version          = "1.5.0"
   s.summary          = "A UIView subclass with a hot-swappable block for the drawRect method"
   s.description      = <<-DESC
                        A UIView subclass with a hot-swappable block for the drawRect method. Custom drawRect code without extra subclassing!

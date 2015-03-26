@@ -67,8 +67,9 @@
     // Change whatever we like... (it's captured by the instance's block copy)
     UIColor *starColor = @[[UIColor redColor],[UIColor greenColor],[UIColor blueColor]][arc4random() % 3];
     
+    CGRect frame = CGRectMake(arc4random() % (int)self.view.bounds.size.width, arc4random() % (int)self.view.bounds.size.height, arc4random() % 200, arc4random() % 200);
     
-    BMDrawRectView *view = [BMDrawRectView viewWithDrawRectBlock:^(CGRect frame)
+    BMDrawRectView *view = [BMDrawRectView viewWithFrame:frame drawRectBlock:^(CGRect frame)
                             {
                                 //// Star Drawing Pasted Shamelessly from PaintCode2 :)
                                 UIBezierPath* starPath = UIBezierPath.bezierPath;
@@ -90,10 +91,16 @@
     view.backgroundColor = [UIColor clearColor];
     view.opaque = NO;
     // Shake things up a bit
-    view.frame = CGRectMake(arc4random() % (int)self.view.bounds.size.width, arc4random() % (int)self.view.bounds.size.height, arc4random() % 200, arc4random() % 200);
     // But keep it orderly
     [self.view insertSubview:view belowSubview:sender];
     // Of course, you can swap blocks in and out as you wish at runtime, create them in storyboards as well as in code (see other example methods above)
+}
+
+#pragma mark - Exit Segue
+
+- (IBAction)returnToMain:(UIStoryboardSegue *)segue
+{
+    // SRSLY with exit segues...
 }
 
 @end

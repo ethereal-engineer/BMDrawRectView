@@ -15,9 +15,9 @@
 
 #pragma mark - Init
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [self initWithDrawRectBlock:nil];
+    self = [self initWithFrame:frame drawRectBlock:nil];
     if (self)
     {
 
@@ -25,13 +25,12 @@
     return self;
 }
 
-- (instancetype)initWithDrawRectBlock:(void (^)(CGRect))drawRectBlock
+- (instancetype)initWithFrame:(CGRect)frame drawRectBlock:(BMDrawRectBlock)drawRectBlock
 {
-    // Some sensible default, but you really should be using AutoLayout :D
-    self = [super initWithFrame:CGRectMake(0, 0, 100, 100)];
+    self = [super initWithFrame:frame];
     if (self)
     {
-        self.drawRectBlock = drawRectBlock;
+        _drawRectBlock = [drawRectBlock copy];
     }
     return self;
 }
@@ -48,13 +47,37 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    if (_drawRectBlock)
+    if (self.drawRectBlock)
     {
-        _drawRectBlock(rect);
+        self.drawRectBlock(rect);
     }
 }
 
 #pragma mark - Class Methods
+
++ (instancetype)viewWithFrame:(CGRect)frame drawRectBlock:(void (^)(CGRect))drawRectBlock
+{
+    BMDrawRectView *view = nil;
+    @autoreleasepool
+    {
+        view = [[BMDrawRectView alloc] initWithFrame:frame drawRectBlock:drawRectBlock];
+    }
+    return view;
+}
+
+
+#pragma mark - Deprecated
+
+- (instancetype)initWithDrawRectBlock:(void (^)(CGRect))drawRectBlock
+{
+    // Some sensible default, but you really should be using AutoLayout :D
+    self = [self initWithFrame:CGRectMake(0, 0, 100, 100) drawRectBlock:drawRectBlock];
+    if (self)
+    {
+        
+    }
+    return self;
+}
 
 + (instancetype)viewWithDrawRectBlock:(void (^)(CGRect))drawRectBlock
 {

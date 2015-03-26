@@ -17,14 +17,17 @@ typedef void(^BMDrawRectBlock)(CGRect rect);
  *  A nil value will simply skip drawing. Changing this property will trigger `setNeedsDisplay`.
  */
 @property (nonatomic, copy) BMDrawRectBlock drawRectBlock;
+
 /**
- *  Default Initializer
+ *  Convenience Initializer
  *
+ *  @param frame         View frame
  *  @param drawRectBlock Convenience for setting the drawrect block property. Setting nil will simply skip drawing.
  *
  *  @return An instance of BMDrawRectView
  */
-- (instancetype)initWithDrawRectBlock:(BMDrawRectBlock)drawRectBlock NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithFrame:(CGRect)frame drawRectBlock:(BMDrawRectBlock)drawRectBlock;
+
 /**
  *  Convenience Initializer (best for Q&D spitballing)
  *
@@ -32,6 +35,28 @@ typedef void(^BMDrawRectBlock)(CGRect rect);
  *
  *  @return An (autoreleased) instance of BMDrawRectView
  */
-+ (instancetype)viewWithDrawRectBlock:(BMDrawRectBlock)drawRectBlock;
++ (instancetype)viewWithFrame:(CGRect)frame drawRectBlock:(BMDrawRectBlock)drawRectBlock;
+
+/**
+ *  @name Deprecated methods. Will be removed in next major release.
+ */
+
+/**
+ *  Convenience Initializer
+ *
+ *  @param drawRectBlock Convenience for setting the drawrect block property. Setting nil will simply skip drawing.
+ *
+ *  @return An instance of BMDrawRectView
+ */
+- (instancetype)initWithDrawRectBlock:(BMDrawRectBlock)drawRectBlock DEPRECATED_ATTRIBUTE;
+
+/**
+ *  Convenience Initializer (best for Q&D spitballing)
+ *
+ *  @param drawRectBlock Convenience for setting the drawrect block property. Setting nil will simply skip drawing.
+ *
+ *  @return An (autoreleased) instance of BMDrawRectView
+ */
++ (instancetype)viewWithDrawRectBlock:(BMDrawRectBlock)drawRectBlock DEPRECATED_ATTRIBUTE;
 
 @end

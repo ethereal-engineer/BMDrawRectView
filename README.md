@@ -35,7 +35,7 @@ The idea behind this dead-simple class was to get rid of the need to create a UI
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view addSubview:[BMDrawRectView viewWithDrawRectBlock:^(CGRect rect)
+    [self.view addSubview:[BMDrawRectView viewWithFrame:self.view.bounds drawRectBlock:^(CGRect rect)
     {
         // Your CGContext/drawRect magic here!
     }];

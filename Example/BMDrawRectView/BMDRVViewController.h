@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ *  Main demo view controller
+ */
+
 @interface BMDRVViewController : UIViewController
 
 @end
